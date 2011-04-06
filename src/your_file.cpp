@@ -4,12 +4,26 @@
 int* withdraw(int ammount, int* size){
     int *bills = (int*)calloc(256, sizeof(int));
 
+    if(ammount >= 100){
     
+        *size =  ammount / 100;
 
-    if (ammount == 10 || ammount == 50) {
+        int i;        
+        for(i=0; i<*size; i++){
+            bills[i] = 100;
+        }
+        
+        ammount -= *size * 100;
+        
+    }
+    
+    
+    if (ammount >= 50) {
         *size = 1;
         bills[0] = ammount;
-    }else {
+    }
+
+    if (ammount == 40 || ammount == 30) {
         *size = 2;
         
         if(ammount % 20 == 0){
@@ -20,6 +34,11 @@ int* withdraw(int ammount, int* size){
             bills[1] = 10;
         }
         
+    }
+
+    if (ammount == 10) {
+        *size = 1;
+        bills[0] = ammount;
     }
 
 	return bills;
