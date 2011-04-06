@@ -4,9 +4,15 @@ void Tests::should_do_withdraw_a_single_bill() {
 
 	// ---> write your test here
 	int size;
-	int *response = withdraw(10, &size);
+	int *response ;
+	
+	response = withdraw(10, &size);
 	ASSERT_EQUALS_INT(size,1);
 	ASSERT_EQUALS_INT(response[0],10);
+
+    response = withdraw(50, &size);
+	ASSERT_EQUALS_INT(size,1);
+	ASSERT_EQUALS_INT(response[0],50);
 
 	//asserts examples 
 	/*
@@ -26,3 +32,4 @@ void Tests::should_do_withdraw_two_bills() {
 	ASSERT_EQUALS_INT(response[1],20);
 
 }
+
