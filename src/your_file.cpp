@@ -2,10 +2,15 @@
 #include "stdlib.h"
 
 int* withdraw(int ammount, int* size){
+    int *bills = (int*)calloc(256, sizeof(int));
 
-    *size = 1;
+    if (ammount<=10) {
+        *size = 1;
+        bills[0] = ammount;
+    } else {
+        *size = 2;
+        bills[0] = bills[1] = ammount/2;
+    }
 
-    int *bills = (int*)calloc(1, sizeof(int));
-    bills[0] = ammount;
 	return bills;
 }

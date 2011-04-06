@@ -16,3 +16,13 @@ void Tests::should_do_withdraw_a_single_bill() {
     ASSERT_EQUALS_STRING("oi", "oi1");
 	*/
 }
+
+void Tests::should_do_withdraw_two_bills() {
+
+	int size;
+	int *response = withdraw(40, &size);
+	ASSERT_EQUALS_INT(size,2);
+	ASSERT_EQUALS_INT(response[0],20);
+	ASSERT_EQUALS_INT(response[1],20);
+
+}
