@@ -21,25 +21,20 @@ int* withdraw(int ammount, int* size){
     
     if (ammount >= 50) {
         *size += 1;
-        bills[index++] = ammount;
+        bills[index++] = 50;
+        ammount -= 50;
     }
-
-    if (ammount == 40 || ammount == 30) {
-        *size = 2;
-        
-        if(ammount % 20 == 0){
-            bills[0] = bills[1] = ammount/2;
-        }
-        else{
-            bills[0] = 20;
-            bills[1] = 10;
-        }
-        
+    
+    while (ammount >= 20) {
+        *size += 1;
+        bills[index++] = 20;
+        ammount -= 20;
     }
-
-    if (ammount == 10) {
-        *size = 1;
-        bills[0] = ammount;
+    
+    if (ammount >= 10) {
+        *size += 1;
+        bills[index++] = 10;
+        ammount -= 10;
     }
 
 	return bills;
