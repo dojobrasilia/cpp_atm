@@ -7,16 +7,16 @@ int* withdraw(int ammount, int* size){
     
     int index = 0;
     int bill_values[] = {100, 50, 20, 10};
+    int bill_values_size = 4;
 
     int i;
-    for (i = 0; i < 4; i++){
+    for (i = 0; i < bill_values_size; i++){
         while(ammount >= bill_values[i]){
             *size += 1;
             bills[index++] = bill_values[i];
             ammount -= bill_values[i];
         }    
     }
-
 
 	return bills;
 }
