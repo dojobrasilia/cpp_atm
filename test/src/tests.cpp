@@ -26,10 +26,29 @@ void Tests::should_do_withdraw_a_single_bill() {
 void Tests::should_do_withdraw_two_bills() {
 
 	int size;
-	int *response = withdraw(40, &size);
+	int *response;
+	
+	response = withdraw(40, &size);
 	ASSERT_EQUALS_INT(size,2);
 	ASSERT_EQUALS_INT(response[0],20);
 	ASSERT_EQUALS_INT(response[1],20);
+    
+    response = withdraw(30, &size);
+	ASSERT_EQUALS_INT(size,2);
+	ASSERT_EQUALS_INT(response[0],20);
+	ASSERT_EQUALS_INT(response[1],10);
+}
 
+void Tests::should_do_withdraw_four_100_bills() {
+
+	int size;
+	int *response;
+	
+	response = withdraw(400, &size);
+	ASSERT_EQUALS_INT(size,4);
+	ASSERT_EQUALS_INT(response[0],100);
+	ASSERT_EQUALS_INT(response[1],100);
+	ASSERT_EQUALS_INT(response[2],100);
+	ASSERT_EQUALS_INT(response[3],100);
 }
 
