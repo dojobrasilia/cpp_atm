@@ -6,36 +6,19 @@ int* withdraw(int ammount, int* size){
     *size = 0;
     
     int index = 0;
+    int bill_values[] = {100, 50, 20, 10};
 
-    if(ammount >= 100){
-    
-        *size =  ammount / 100;
+    int i;
+    for (i = 0; i < 4; i++){
+        while(ammount >= bill_values[i]){
+            *size += 1;
+            bills[index++] = bill_values[i];
+            ammount -= bill_values[i];
+        }    
+    }
 
-        int i;        
-        for(i=0; i<*size; i++){
-            bills[index++] = 100;
-        }
-        
-        ammount -= *size * 100;
-    }
-    
-    if (ammount >= 50) {
-        *size += 1;
-        bills[index++] = 50;
-        ammount -= 50;
-    }
-    
-    while (ammount >= 20) {
-        *size += 1;
-        bills[index++] = 20;
-        ammount -= 20;
-    }
-    
-    if (ammount >= 10) {
-        *size += 1;
-        bills[index++] = 10;
-        ammount -= 10;
-    }
 
 	return bills;
 }
+
+
