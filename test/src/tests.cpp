@@ -37,7 +37,14 @@ void Tests::should_do_withdraw_two_bills() {
 	ASSERT_EQUALS_INT(size,2);
 	ASSERT_EQUALS_INT(response[0],20);
 	ASSERT_EQUALS_INT(response[1],10);
+
+    response = withdraw(150, &size);
+	ASSERT_EQUALS_INT(size,2);
+	ASSERT_EQUALS_INT(response[0],100);
+	ASSERT_EQUALS_INT(response[1],50);
+
 }
+
 
 void Tests::should_do_withdraw_four_100_bills() {
 
